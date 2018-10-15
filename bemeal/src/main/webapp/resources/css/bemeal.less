@@ -10,6 +10,7 @@ div::-webkit-scrollbar {
 .carousel-inner {
 	position : relative;
 	margin-bottom:50px;
+	overflow:visible
 }
 .item {
 	cursor : pointer;
@@ -21,7 +22,7 @@ div::-webkit-scrollbar {
 		text-align : center;
 		color : @main_color_red;
 		font-size : 20px;
-		z-index : 10;
+		z-index:51;
 		}
 	}
 }
@@ -38,8 +39,22 @@ div::-webkit-scrollbar {
 .carousel-control {
 	width : 7%;
 }
+.img_hover {
+	transform:scale(1);
+	transition : all 0.3s ease-in-out;
+	
+}
+.img_hover:hover {
+		transform : scale(1.5);
+		position:relative;
+		z-index : 50;
+	}
 
-
+.evaluate_content_list {
+	display : flex;
+	flex-flow : row wrap;
+	justify-content : space-around;
+}
 
 footer {
   bottom: 0;

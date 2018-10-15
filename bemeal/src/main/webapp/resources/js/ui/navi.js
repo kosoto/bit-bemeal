@@ -17,6 +17,7 @@ function naviUI (){
 				+'<li><a href="#" id="join">JOIN '
 						+'</a></li>'
 				+'<li><a href="#" id="taste">MY TASTE</a></li>'
+				+'<li><a href="#" id="evaluate">평가하기</a></li>'
 				+'<li><a href="#" id="sam">SAM</a></li>'
 				+'</ul>'
 			+'<ul class="nav navbar-nav navbar-right">'

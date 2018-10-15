@@ -44,7 +44,7 @@ bemeal.router = {
 				$('#wrapper').html(naviUI())
 				.append(
 					$('<header/>').append(
-							bemeal.service.banner({
+							bemeal.compo.banner({
 								id:'banner',
 								arr:[{image:"/web/resources/img/cmm/banner1.jpg"},{image:"/web/resources/img/cmm/banner2.jpg"}]
 							})
@@ -58,11 +58,11 @@ bemeal.router = {
 				});
 				
 				let $content = $('#content');
-				let $carousels = $('<div/>').attr({style:'overflow-y:scroll'}).appendTo($content);
+				let $carousels = $('<div/>').appendTo($content);
 
 				$.getJSON($.ctx()+"/item/list/first",d=>{
 					$carousels.append(
-							bemeal.service.carousel({
+							bemeal.compo.carousel({
 								id:'carousel1',
 								title:'가장 평점이 높은',
 								arr:d.list,
@@ -73,7 +73,7 @@ bemeal.router = {
 				
 				$.getJSON($.ctx()+"/item/list/second",d=>{
 					$carousels.append(
-							bemeal.service.carousel({
+							bemeal.compo.carousel({
 								id:'carousel2',
 								title:'가장 인기 있는',
 								arr:d.list,
@@ -84,7 +84,7 @@ bemeal.router = {
 				
 				$.getJSON($.ctx()+"/item/list/third",d=>{
 					$carousels.append(
-							bemeal.service.carousel({
+							bemeal.compo.carousel({
 								id:'carousel3',
 								title:'가장 판매량이 높은',
 								arr:d.list,
@@ -109,7 +109,7 @@ bemeal.router = {
 					if(num<=10 && $window.scrollTop()+$window.height()+30>$(document).height()){
 						$.getJSON($.ctx()+"/item/list/scrollTest",d=>{
 							$carousels.append(
-									bemeal.service.carousel({
+									bemeal.compo.carousel({
 										id:'carousel'+num,
 										title:'scrollTest'+(num-3),
 										arr:d.list,
@@ -159,6 +159,10 @@ bemeal.router = {
 						junghoon.member.add();
 					})
 				});
+				$('#evaluate').click(e=>{
+					alert('evaluate 클릭');
+					bemeal.evaluate.main();
+				});
 				$('#sam').click(e=>{
 					alert('sam click');
 					$.getScript($.script()+"/sam.js",()=>{
@@ -172,8 +176,8 @@ bemeal.router = {
 			
 		}
 };
-bemeal.service=(()=>{
-	var carousel = x=>{
+bemeal.compo=(()=>{
+	var carousel = x=>{/*x.id, x.title 슬라이드의 제목, x.arr 슬라이드에 보여질 이미지들, x.row_size 한번에 보여줄 이미지의 갯수*/
 		let arr = x.arr;
 		let row_size = x.row_size;
 		let $div = $('<div/>').attr({id:x.id,'data-ride':'carousel'}).addClass('carousel slide')
@@ -203,6 +207,7 @@ bemeal.service=(()=>{
 						yoonho.service.retrieve(arr[j].itemSeq);
 					});
 				})
+				.addClass('img_hover')
 				.appendTo($span);
 			}
 		}
@@ -223,9 +228,10 @@ bemeal.service=(()=>{
 						  allowPageScroll:"vertical"
 						});;
 	};
-	var banner = x=>{
+	var banner = x=>{ /* x.id, x.arr 배너에 보여줄 이미지들*/
 		let $div = $('<div/>').attr({id:x.id,'data-ride':'carousel'}).addClass('carousel slide')
 					.append($('<h5/>').addClass('carousel-title').append($('<span/>').text(''))); /* text : 배너 제목*/
+		
 		let $ol = $('<ol/>').addClass('carousel-indicators').appendTo($div);
 		let arr = x.arr;
 		for(let i=0;i<arr.length;i++){
@@ -261,10 +267,41 @@ bemeal.service=(()=>{
 		}
 		return $div;
 	};
-	return {carousel:carousel,banner,banner};
+	return {
+		carousel:carousel,
+		banner:banner
+		};
 })();
 
-
+bemeal.evaluate=(()=>{
+	var main=x=>{
+		$('header').remove();
+		let $header = $('<div/>').addClass('evaluate_header').append(
+				$('<div/>').addClass('evaluate_header_count').text('10')  //text에 개인이 평가한 갯수 표시
+		);
+		let $content_list = $('<div/>').addClass('evaluate_content_list');
+		let page = 1;
+		$.getJSON($.ctx()+'/item/evaluate/id/'+page,d=>{//id는 로그인한 사람의 아이디
+			console.log(d.list);
+			$.each(d.list,(i,j)=>{
+				let $content = $('<div/>').addClass('evaluate_content').appendTo($content_list);
+				let $img = $('<img/>').addClass('evaluate_img').attr({src:j.image});
+				$img.appendTo($content);
+				let overlay = $('<div/>').addClass('evaluate_overlay').appendTo($content)
+					.append(
+							$('<div/>').addClass('evaluate_title'),
+							$('<div/>').addClass('star-rating')
+					);
+				
+			});
+		});
+		page++; //페이지수 증가
+		$('#content').empty().append(
+				$header,$content_list
+		);
+	};
+	return {main:main}; 
+})();
 
 
 
