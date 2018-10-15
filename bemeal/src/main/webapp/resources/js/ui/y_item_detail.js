@@ -35,7 +35,7 @@ function y_item_detailUI(){
 	+'                            <span class="glyphicon glyphicon-star-empty"></span>'
 	+'                            <span class="glyphicon glyphicon-star-empty"></span></p>'
 	+'                        </div>'
-	+'                        <p>매화도시락 너무 비싸요 음식점에서 사먹는가격보다 비쌈..</p>'
+	+'                        <p>매화도시락 너무 비싸요 음식점에서 사먹는가격보다 비쌈.</p>'
 	+'                          <span class="glyphicon glyphicon-thumbs-up"></span>'
 	+'                        <a href="#" class="btn btn-warning" role="button">수정<a/>'
 	                        +''
