@@ -1,4 +1,4 @@
-function addUI(){
+ function addUI(){
 	return '<div class="add" id="add_form">'
 	+'<form id="join_form">'
 	+'<h2>안뇽! 안뇽!</h2>'
