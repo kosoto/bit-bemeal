@@ -17,4 +17,8 @@ public class Item {
 	private String image;
 	private String explains;
 	private int colorie;
+	
+	
+	
+	
 }

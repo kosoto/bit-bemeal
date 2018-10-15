@@ -51,14 +51,6 @@
   text-align: left;
   z-index: 1045; }
 
-.mfp-navi {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 auto;
-  text-align: right;
-  z-index: 1045; }
-
 .mfp-inline-holder .mfp-content, .mfp-ajax-holder .mfp-content {
   width: 100%;
   cursor: auto; }
@@ -385,10 +377,7 @@ img.mfp-img {
     position: relative;
     background: #FFF;
     padding: 20px;
-    width:100%;
-    max-width: 100%;/* 500px */
-    height:2500px;
-    max-height: 100%;
+    width:auto;
+    max-width: 500px;
     margin: 20px auto;
 }
-
