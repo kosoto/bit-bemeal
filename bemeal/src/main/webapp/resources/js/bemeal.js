@@ -292,7 +292,6 @@ bemeal.evaluate=(()=>{
 							$('<div/>').addClass('evaluate_title'),
 							$('<div/>').addClass('star-rating')
 					);
-				
 			});
 		});
 		page++; //페이지수 증가
