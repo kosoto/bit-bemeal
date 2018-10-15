@@ -9,7 +9,4 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MemberCtrl {
 	private static final Logger logger = LoggerFactory.getLogger(MemberCtrl.class);
-	@Autowired Member member;
-	@Autowired MemberMapper memberMapper;
-	@Autowired HashMap<String, Object> map;
 }
