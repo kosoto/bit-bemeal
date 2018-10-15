@@ -173,6 +173,7 @@ bemeal.router = {
 		}
 };
 bemeal.service=(()=>{
+	/*slide*/
 	var carousel = x=>{
 		let arr = x.arr;
 		let row_size = x.row_size;

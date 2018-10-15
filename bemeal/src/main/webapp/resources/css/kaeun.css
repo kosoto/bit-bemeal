@@ -57,7 +57,7 @@
 }
 
 /*Cart layout Grid */
-.grid_cart_layout {
+.grid_layout {
   display: grid;
   grid-template-areas:
     'title_l title_l title_l title_r title_r title_r'
@@ -65,24 +65,24 @@
     'footer footer footer footer footer footer';
   grid-gap: 5px;
   background-color: #ffffff;
-  padding: 5px;
+  padding: 8px;
 }
-.grid_cart_layout > div {
+.grid_layout > div {
   background-color: rgba(255, 255, 255, 0.8);
   /* text-align: center; */
-  padding: 30px 0;
+  padding: 5px 0;
   font-size: 15px;
 }
 
 /* Cart Grid */
-.cart-grid-container {
+.list-grid-container {
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto;
   grid-gap: 1px;
   background-color: #ffffff;
   padding: 5px;
 }
-.cart-grid-container > div {
+.list-grid-container > div {
   //background-color: rgba(255, 255, 255, 0.8);
   //text-align: center;
   padding: 5px 0;
@@ -103,6 +103,13 @@
   grid-column-start: 1;
   grid-column-end: 5;
   text-align: center;
+  background-color: rgb(191, 191, 191);
+  color:  #ffffff;
+}
+.item_headerinfo_pay {
+  grid-column-start: 2;
+  grid-column-end: 5;
+   text-align: center;
   background-color: rgb(191, 191, 191);
   color:  #ffffff;
 }
@@ -170,9 +177,14 @@
 
 
 /* 버튼css */
-.btn-two.blue     {background-color: #7fccde;}
 .btn-two.green   {background-color: #9abf7f;}
 .btn-two.red       {background-color: #bb1d1e;}
+.btn-two.white {background-color: #ffffff;
+                     color:#4d4d4d;} 
+.btn-two.yellowp {background-color: #ffffb3;}
+.btn-two.blue     {background-color: #7fccde;}
+.btn-two.redp {background-color: #ea7b7b;}
+.btn-two.greenp {background-color: #ffe066;}
 .btn-two.purple {background-color: #cb99c5;}
 .btn-two.yellow {background-color: #fdcf33;}
 .btn-two.grey {background-color: #cccccc;}
@@ -203,3 +215,23 @@
     box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: relative;
 }
+
+
+/* 구매 내역 search */
+.form-control {
+  max-width : 150px;
+  display:inline;
+}
+.pay_search_grid {
+  display: grid;
+  grid-template-areas:
+    'auto auto'
+  grid-gap: 2px;
+  background-color: #ffffff;
+  padding: 8px;
+} 
+/* .f-search {
+  max-width: 150px;
+  display:inline;
+}
+ */

@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
+
+
 @Component @Data @Lazy
 public class Item {
 	private int itemSeq;
@@ -17,4 +19,8 @@ public class Item {
 	private String image;
 	private String explains;
 	private int colorie;
+	
+	
+	
+	
 }

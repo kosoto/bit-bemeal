@@ -32,6 +32,7 @@ public class ItemCtrl {
 				int n = ((int) (Math.random()*10))+1;
 				item.setImage("/web/resources/img/cmm/image"+n+".jpg");
 				item.setItemName("도시락"+n);
+				
 				temp.add(item);
 			}
 			// DB가서 데이터 가져오기 끝
